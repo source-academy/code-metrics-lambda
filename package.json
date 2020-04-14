@@ -1,0 +1,22 @@
+{
+  "name": "code-metrics-lambdas",
+  "version": "1.0.0",
+  "description": "AWS Lambda functions to evaluate code metrics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/source-academy/code-metrics-lambdas.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/source-academy/code-metrics-lambdas/issues"
+  },
+  "homepage": "https://github.com/source-academy/code-metrics-lambdas#readme",
+  "dependencies": {
+    "lex": "^1.7.9"
+  }
+}

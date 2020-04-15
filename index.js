@@ -10,6 +10,7 @@ exports.handler = async (event) => {
     var response;
 
     switch(metric_type) {
+
         case "code_length" :
             response = {
                 responseType: "successful",
@@ -20,6 +21,7 @@ exports.handler = async (event) => {
                     }
             };
             break;
+
         case "runtime" :
             response = {
                 responseType: "successful",
@@ -29,6 +31,7 @@ exports.handler = async (event) => {
                     }
             };
             break;
+
         case "memory_usage" :
             response = {
                 responseType: "successful",
@@ -38,6 +41,20 @@ exports.handler = async (event) => {
                     }
             };
             break;
+
+        case "all" :
+            response = {
+                responseType: "successful",
+                response:
+                    {
+                        length: studentProgram.length,
+                        numOfToken: count_token(studentProgram),
+                        runtime: measure_runtime(program, chapter),
+                        memoryUsage: get_memory_usage(program, chapter)
+                    }
+            };
+            break;
+
         default :
             response = {
                 responseType: "error",

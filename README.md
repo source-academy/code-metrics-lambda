@@ -1,7 +1,7 @@
-# code-metrics-lambdas
+# code-metrics-lambda
 AWS Lambda Function For Evaluating Code Metrics
 
-The code-metrics-lambdas is a aws lambda function, which calculates code metrics of a Source program such as number of tokens, runtime in milliseconds, memory consumption in kB.
+The code-metrics-lambda is a aws lambda function, which calculates code metrics of a Source program such as number of tokens, runtime in milliseconds, memory consumption in kB.
 
 The function receives a JSON format and returns a JSON containing the results of the code metrics.
 

@@ -1,21 +1,13 @@
 # code-metrics-lambdas
-AWS Lambda Functions For Evaluating Code Metrics
+AWS Lambda Function For Evaluating Code Metrics
 
-The code-metrics-lambdas is a aws lambda function, 
-which can be used to calculate the code metrics 
-such as number of tokens, 
-runtime in milliseconds,
-memory consumption in kB
+The code-metrics-lambdas is a aws lambda function, which calculates code metrics of a Source program such as number of tokens, runtime in milliseconds, memory consumption in kB.
 
-Receives a JSON format,
-
-Returns a JSON containing the results of metric asked.
+The function receives a JSON format and returns a JSON containing the results of the code metrics.
 
 ## Input JSON format
 
-The input format consists of metric_type and studentProgram
-
-this lambda supports 3 metric_type input:
+The are currently 3 metric types supported by the function:
 
 1. code_length,
 2. runtime,
@@ -24,20 +16,31 @@ this lambda supports 3 metric_type input:
 Example input:
 ```JSON
 {
-  "metric_type": "code_length",
-  "studentProgram": "const f = i => i === 0 ? 0 : i < 3 ? 1 : f(i-1) + f(i-2);"
+  "library": {
+    "chapter": 1,
+    "external": {
+      "name": "NONE",
+      "symbols": []
+    },
+    "globals": []
+  },
+  "prependProgram": "// This line will be ignored",
+  "studentProgram": "const f = i => i === 0 ? 0 : i < 3 ? 1 : f(i-1) + f(i-2);",
+  "postpendProgram": "// This line will also be ignored",
+  "metric_type": "code_length"
 }
 ```
-The studentProgram are written in [the source language](https://github.com/source-academy/js-slang). 
+The studentProgram string is concatenated with prependProgram and postpendProgram and evaluated using [js-slang](https://github.com/source-academy/js-slang) interpreter for the runtime and memory usage metrics.
 
 ## Output `Response` Format
 
 ### Example: Correct enquiry
 
-The inquire metric type is correct.
+The corresponding `Response` format will look like these:
 
-The corresponding `Response` format will look like this:
-```JSON
+Code Length:
+
+```json
 {
   "responseType": "successful",
   "response": {
@@ -47,9 +50,35 @@ The corresponding `Response` format will look like this:
 }
 ```
 
+Runtime
+
+```json
+{
+  "responseType": "successful",
+  "response": {
+    "runtime": 1062.9705880000256
+  }
+}
+```
+
+
+
+Memory Usage:
+
+```json
+{
+  "responseType": "successful",
+  "response": {
+    "memoryUsage": 12106.4921875
+  }
+}
+```
+
+
+
 ### Example: Wrong enquiry
 
-The inquire metric type is correct.
+An invalid metric_type is provided
 
 The corresponding `Response` format will look like this:
 ```JSON

@@ -8,7 +8,7 @@
     "globals": []
   },
   "prependProgram": "// This line will be ignored",
-  "studentProgram": "1 + 1",
+  "studentProgram": "const f = i => i === 0 ? 0 : i < 3 ? 1 : f(i-1) + f(i-2);",
   "postpendProgram": "// This line will also be ignored",
   "testcases": [
     {
@@ -27,5 +27,5 @@
       "score": 1
     }
   ],
-  "metric_type": "runtime"
+  "metric_type": "memory_usage"
 }

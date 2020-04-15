@@ -1,4 +1,9 @@
 module.exports = {
+    /**
+     * Parses program and counts number of tokens
+     * @param  {String} program  Program to evaluate
+     * @return {Number} Number of tokens in program
+     */
     count_token: function(program) {
         const Lexer = require('lex');
         var operators = [

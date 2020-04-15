@@ -1,12 +1,16 @@
+const { eval_code } = require('./evalCode.js');
+
 module.exports = {
-    get_memory_usage: function(program) {
-        // returns memory consumption in kB
-        memory_usage = eval_program_string(program);
-        return memory_usage;
+    /**
+     * Evaluates Source program string using js-slang interpreter and measures memory usage
+     * Currently global.gc() does not seem to reset memory properly but works if code is evaluated using eval()
+     * @param  {String} program  Program to evaluate
+     * @param  {Number} chapter  Source chapter number to evaluate under
+     * @return {Number} Program memory consumption in kB
+     */
+    get_memory_usage: function(program, chapter) {
+        global.gc();
+        eval_code(program, chapter);
+        return process.memoryUsage().heapUsed / 1024;
     }
 };
-
-function eval_program_string(obj) {
-    global.gc(); // garbage collect
-    return Function('"use strict";' + obj + 'return process.memoryUsage().heapUsed / 1024;')();
-}

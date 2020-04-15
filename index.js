@@ -3,9 +3,12 @@ const { count_token } = require('./countToken.js');
 const { get_memory_usage } = require('./getMemoryUsage.js');
 
 exports.handler = async (event) => {
-    var metric_type = event.metric_type;
+    const metric_type = event.metric_type;
+    const studentProgram = event.studentProgram;
+    const program = event.prependProgram + studentProgram + event.postpendProgram;
+    const chapter = event.library.chapter;
     var response;
-    var studentProgram = event.studentProgram;
+
     switch(metric_type) {
         case "code_length" :
             response = {
@@ -22,7 +25,7 @@ exports.handler = async (event) => {
                 responseType: "successful",
                 response:
                     {
-                        runtime: measure_runtime(studentProgram)
+                        runtime: measure_runtime(program, chapter)
                     }
             };
             break;
@@ -31,7 +34,7 @@ exports.handler = async (event) => {
                 responseType: "successful",
                 response:
                     {
-                        memoryUsage: get_memory_usage(studentProgram)
+                        memoryUsage: get_memory_usage(program, chapter)
                     }
             };
             break;

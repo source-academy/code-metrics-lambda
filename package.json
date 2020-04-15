@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/source-academy/code-metrics-lambdas#readme",
   "dependencies": {
+    "js-slang": "^0.4.31",
     "lex": "^1.7.9"
   }
 }

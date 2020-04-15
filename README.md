@@ -15,6 +15,12 @@ Returns a JSON containing the results of metric asked.
 
 The input format consists of metric_type and studentProgram
 
+this lambda supports 3 metric_type input:
+
+1. code_length,
+2. runtime,
+3. memory_usage
+
 Example input:
 ```JSON
 {
@@ -23,12 +29,6 @@ Example input:
 }
 ```
 The studentProgram are written in [the source language](https://github.com/source-academy/js-slang). 
-
-this lambda supports 3 metric_type input:
-
-  code_length
-  runtime
-  memory_usage
 
 ## Output `Response` Format
 

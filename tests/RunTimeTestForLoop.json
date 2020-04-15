@@ -1,0 +1,31 @@
+{
+  "library": {
+    "chapter": 4,
+    "external": {
+      "name": "NONE",
+      "symbols": []
+    },
+    "globals": []
+  },
+  "prependProgram": "// This line will be ignored",
+  "studentProgram": "for (var i = 1; i <= 100; i++) { i + i; }",
+  "postpendProgram": "// This line will also be ignored",
+  "testcases": [
+    {
+      "program": "f(1);",
+      "answer": "1",
+      "score": 1
+    },
+    {
+      "program": "f(3);",
+      "answer": "2",
+      "score": 1
+    },
+    {
+      "program": "f(5);",
+      "answer": "5",
+      "score": 1
+    }
+  ],
+  "metric_type": "runtime"
+}

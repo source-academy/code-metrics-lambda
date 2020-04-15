@@ -1,0 +1,31 @@
+{
+  "library": {
+    "chapter": 4,
+    "external": {
+      "name": "NONE",
+      "symbols": []
+    },
+    "globals": []
+  },
+  "prependProgram": "// This line will be ignored",
+  "studentProgram": "const xs = enum_list(1, 1000)",
+  "postpendProgram": "// This line will also be ignored",
+  "testcases": [
+    {
+      "program": "f(1);",
+      "answer": "1",
+      "score": 1
+    },
+    {
+      "program": "f(3);",
+      "answer": "2",
+      "score": 1
+    },
+    {
+      "program": "f(5);",
+      "answer": "5",
+      "score": 1
+    }
+  ],
+  "metric_type": "memory_usage"
+}

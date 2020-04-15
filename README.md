@@ -89,3 +89,15 @@ The corresponding `Response` format will look like this:
   }
 }
 ```
+
+
+
+## Building
+
+```bash
+npm install
+zip -r ../CodeMetricsDeploymentPackage.zip .
+```
+
+Then upload the `CodeMetricsDeploymentPackage.zip` in the parent directory to AWS Lambda Function
+
